@@ -9,7 +9,7 @@
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/hello.js" target="js/hello.js"/>
+  <asset src="www/geofencing.js" target="js/geofencing.js"/>
 
   <js-module src="www/geofencing.js" name="geofencing">
     <clobbers target="geofencing" />
@@ -24,7 +24,7 @@
     </config-file>
 
     <header-file src="src/ios/MBGeofencing.h" target-dir="MBGeofencing"/>
-    <source-file src="src/ios/MBGeofencing.h" target-dir="MBGeofencing"/>
+    <source-file src="src/ios/MBGeofencing.m" target-dir="MBGeofencing"/>
   </platform>
 
 </plugin>
