@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.michaelbelkin.cordova-plugin-geofencing"
-        version="1.0.0">
+	id="com.michaelbelkin.cordova-plugin-geofencing"
+	version="1.0.0">
 
-  <name>Geofencing</name>
+	<name>MBGeofencing</name>
+	<author>Michael Belkin</author>
 
-  <engines>
-    <engine name="cordova" version=">=3.4.0"/>
-  </engines>
+	<engines>
+		<engine name="cordova-ios" version=">=3.4.0"/>
+	</engines>
 
-  <asset src="www/geofencing.js" target="js/geofencing.js"/>
+	<asset src="www/MBGeofencing.js" target="js/MBGeofencing.js"/>
 
-  <js-module src="www/geofencing.js" name="geofencing">
-    <clobbers target="geofencing" />
-  </js-module>
+	<js-module src="www/MBGeofencing.js" name="geofencing">
+		<clobbers target="geofencing" />
+	</js-module>
 
-  <platform name="ios">
-    
-    <config-file target="config.xml" parent="/widget">
-      <feature name="Geofencing">
-        <param name="ios-package" value="MBGeofencing" />
-      </feature>
-    </config-file>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/widget">
+			<feature name="MBGeofencing">
+				<param name="ios-package" value="MBGeofencing" />
+			</feature>
+		</config-file>
+		<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+			<string>Change This Description in MBGeofence's plugin.xml file</string>
+		</config-file>
 
-    <header-file src="src/ios/MBGeofencing.h" target-dir="MBGeofencing"/>
-    <source-file src="src/ios/MBGeofencing.m" target-dir="MBGeofencing"/>
-  </platform>
+		<header-file src="src/ios/MBGeofencing.h" target-dir="MBGeofencing"/>
+		<source-file src="src/ios/MBGeofencing.m" target-dir="MBGeofencing"/>
+	</platform>
 
 </plugin>

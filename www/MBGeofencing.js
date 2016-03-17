@@ -11,7 +11,7 @@ module.exports = {
     * @param {Function} errorCallback       The function to call when there is an error getting the heading position. (OPTIONAL)
     */
     requestPermissions:function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "MBGeofencing", "requestPermissions");
+        cordova.exec(successCallback, errorCallback, "MBGeofencing", "requestPermissions", []);
     },
     /**
     * Starts monitoring a circular region
@@ -24,7 +24,7 @@ module.exports = {
     * @param {Function} errorCallback       The function to call when there is an error getting the heading position. (OPTIONAL)
     */
     startMonitoringRegion:function(identifier, lat, lon, radius, successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "MBGeofencing", "startMonitoringRegion", [identifier, lat, lon, radius]);
+        cordova.exec(successCallback, errorCallback, "MBGeofencing", "startMonitoringRegion", [identifier, lat, lon, radius]);
     },
     /**
     * Stops monitoring a circular region
@@ -34,7 +34,7 @@ module.exports = {
     * @param {Function} errorCallback       The function to call when there is an error getting the heading position. (OPTIONAL)
     */
     stopMonitoringRegion:function(identifier, successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "MBGeofencing", "stopMonitoringRegion", [identifier]);
+        cordova.exec(successCallback, errorCallback, "MBGeofencing", "stopMonitoringRegion", [identifier]);
     },
     /**
     * Stops monitoring all previously registered regions
@@ -43,6 +43,6 @@ module.exports = {
     * @param {Function} errorCallback       The function to call when there is an error getting the heading position. (OPTIONAL)
     */
     stopMonitoringAllRegions:function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "MBGeofencing", "stopMonitoringAllRegions", [identifier]);
+        cordova.exec(successCallback, errorCallback, "MBGeofencing", "stopMonitoringAllRegions", []);
     }
 };

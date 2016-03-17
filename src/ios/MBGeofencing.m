@@ -30,6 +30,7 @@
 			break;
 		case kCLAuthorizationStatusNotDetermined:
 		case kCLAuthorizationStatusAuthorizedWhenInUse:
+			if (command) [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Requested necessary geofencing permissions (but they're not yet granted as of the invocation of this callback)"] callbackId:command.callbackId];
 			if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
 			{
 				// iOS 8
@@ -39,8 +40,7 @@
 			{
 				// ios7
 				[self.locationManager startUpdatingLocation]; // do this just to promopt the permissions alert to show
-			}
-			if (command) [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Requested necessary geofencing permissions (but they're not yet granted as of the invocation of this callback)"] callbackId:command.callbackId];
+			}			
 			break;
 		case kCLAuthorizationStatusAuthorized: // same as kCLAuthorizationStatusAuthorizedAlways in iOS8
 			if (command) [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Proper geofencing permissions are enabled"] callbackId:command.callbackId];
